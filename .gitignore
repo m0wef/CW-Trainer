@@ -1,1 +1,12 @@
 Makefile
+.qmake.stash
+cwsound.o
+cwtrainer.app/
+layout.o
+lcdrange.o
+main.o
+moc_layout.cpp
+moc_layout.o
+moc_lcdrange.cpp
+moc_lcdrange.o
+moc_predefs.h
