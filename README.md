@@ -1,5 +1,8 @@
 Welcome to CW Trainer!
 
+2019-09-11 Ported to Qt5 and patched to run on macOS (without sound).
+           Next: convert to use Qt's Media stuff.
+
 Legal Stuff:
 
 This application and its source code are hereby released under the
