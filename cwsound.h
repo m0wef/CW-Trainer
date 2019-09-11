@@ -10,7 +10,7 @@
 #ifndef __CW__SOUND__H__
 #define __CW__SOUND__H__
 
-#define ALSA
+//#define ALSA
 
 #ifdef ALSA
    #include <alsa/asoundlib.h>

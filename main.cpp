@@ -19,7 +19,7 @@
  **
  ****************************************************************/
 
-#include <qapplication.h>
+//#include <qapplication.h>
 #include "layout.h"
 
 int main( int argc, char **argv )

@@ -63,7 +63,8 @@ private:
  #ifndef LCDRANGE_H
  #define LCDRANGE_H
 
- #include <QWidget>
+ #include <QtWidgets>
+// #include <QWidget>
 
  class QLabel;
  class QSlider;

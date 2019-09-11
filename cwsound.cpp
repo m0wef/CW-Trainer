@@ -14,7 +14,7 @@
 #include <sys/ioctl.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <linux/soundcard.h>
+//#include <linux/soundcard.h>
 #include <ctype.h>
 #include <math.h>
 #include <string.h>
@@ -22,12 +22,14 @@
 #include "cwsound.h"
 
 
+#ifdef OSS
 void play_note(unsigned char* note, int fd_dsp, int dur)
 {
   int status;
   status = write(fd_dsp, note, dur); /* play it back */
   status = ioctl(fd_dsp, SOUND_PCM_SYNC, 0); 
 }
+#endif /* OSS */
 
 #define SAMPLE_RATE		11025
 

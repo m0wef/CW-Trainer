@@ -235,7 +235,7 @@ void MyWidget::playNextChar()
 	}
 
       //next_char = (char)ch.upper();
-      next_char = ch.toUpper().toAscii();
+      next_char = ch.toUpper().toLatin1();
 
       //couple of translations?
       if(next_char == '-' || next_char == ':' || next_char == '\\')
@@ -252,7 +252,7 @@ void MyWidget::playNextChar()
 	      return;
 	    }
 	  //prosign[0] = (char)ch.upper();
-	  prosign[0] = ch.toUpper().toAscii();
+	  prosign[0] = ch.toUpper().toLatin1();
 
 	  ch = m_charpipe[m_numingroup];
 	  m_numingroup++;
@@ -262,7 +262,7 @@ void MyWidget::playNextChar()
 	      return;
 	    }
 	  //prosign[1] = (char)ch.upper();
-	  prosign[1] = ch.toUpper().toAscii();
+	  prosign[1] = ch.toUpper().toLatin1();
 	}
 
       if(next_char == ' ')
