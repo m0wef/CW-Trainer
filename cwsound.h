@@ -45,7 +45,7 @@ class CWSoundMachine
   void BuildBuffers();
 
   //prevent copies
-  CWSoundMachine(const CWSoundMachine& cw){};
+  CWSoundMachine(const CWSoundMachine& cw) { (void) cw; }
  public:
   CWSoundMachine(int speed, int charspacelen, int freq);
   ~CWSoundMachine();

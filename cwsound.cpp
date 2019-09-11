@@ -208,28 +208,25 @@ void CWSoundMachine::PlayCWNote(const char *note)
     {
       int dur = note[i] == '.' ? m_ditlen : m_dahlen;
       unsigned char *buf = (note[i] == '.' ? m_ditbuffer : m_dahbuffer);
+#ifndef ALSA
+#ifndef OSS
+      // Tell compiler they are not used if no sound output is defined
+      (void) dur;
+      (void) buf;
+#endif
+#endif
+
+#ifdef ALSA
       void *buffers[1];
       buffers[0] = buf;
-      #ifdef ALSA
-      //int return_value = snd_pcm_writei(m_handle, buf, m_frames);
-      int return_value;
-     while ((return_value = snd_pcm_writen(m_handle, buffers, dur+m_ditlen)) < 0) {
+      while ((return_value = snd_pcm_writen(m_handle, buffers, dur+m_ditlen)) < 0) {
           snd_pcm_prepare(m_handle);
-//          fprintf(stderr, "xrun !\n");
       }
-     /*int return_value = snd_pcm_writen(m_handle, buffers, dur+m_ditlen);
-        if( return_value == -EPIPE)
-	{
-	     fprintf(stderr, "Sound error: underrun\n");
-//	     snd_pcm_prepare(m_handle);
-	}
-	else if (return_value < 0)
-	{
-	     fprintf(stderr, "Sound error: %s\n", snd_strerror(return_value));
-	     }*/
-      #endif /* ALSA */
-      #ifdef OSS
+#endif /* ALSA */
+
+#ifdef OSS
         play_note(buf, m_dsp, dur+m_ditlen);
-      #endif /* OSS */
+#endif /* OSS */
+
     }
 }
